@@ -38,12 +38,15 @@ const educationData = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-20 px-4 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gradient">
-          Education
-        </h2>
-        <div className="w-20 h-1 gradient-primary mx-auto mb-12 rounded-full"></div>
+    <section id="education" className="py-20 px-4 bg-muted/30 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="text-center mb-12 animate-fade-in">
+          <h2 className="text-4xl md:text-6xl font-display font-bold mb-4 text-gradient">
+            Education
+          </h2>
+          <div className="w-20 h-1 gradient-primary mx-auto rounded-full"></div>
+        </div>
 
         <div className="relative">
           {/* Timeline line */}
@@ -55,12 +58,14 @@ const Education = () => {
                 {/* Timeline dot */}
                 <div className="absolute left-6 top-6 w-5 h-5 rounded-full bg-primary border-4 border-background shadow-glow hidden md:block"></div>
 
-                <Card className={`p-6 shadow-card hover:shadow-elegant transition-smooth ${
-                  edu.current ? 'border-2 border-primary' : ''
+                <Card className={`p-6 shadow-card hover-lift group ${
+                  edu.current ? 'border-2 border-primary shadow-glow' : ''
                 }`}>
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-primary/10 flex-shrink-0">
-                      <GraduationCap className="w-6 h-6 text-primary" />
+                    <div className={`p-3 rounded-full flex-shrink-0 transition-all ${
+                      edu.current ? 'bg-primary text-primary-foreground' : 'bg-primary/10 group-hover:bg-primary/20'
+                    }`}>
+                      <GraduationCap className="w-6 h-6 group-hover:scale-110 transition-transform" />
                     </div>
                     
                     <div className="flex-1">

@@ -49,12 +49,15 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gradient">
-          Projects
-        </h2>
-        <div className="w-20 h-1 gradient-primary mx-auto mb-12 rounded-full"></div>
+    <section id="projects" className="py-20 px-4 relative overflow-hidden">
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="text-center mb-12 animate-fade-in">
+          <h2 className="text-4xl md:text-6xl font-display font-bold mb-4 text-gradient">
+            Projects
+          </h2>
+          <div className="w-20 h-1 gradient-primary mx-auto rounded-full"></div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectsData.map((project, index) => {
@@ -62,18 +65,19 @@ const Projects = () => {
             return (
               <Card
                 key={index}
-                className="p-6 shadow-card hover:shadow-elegant transition-smooth hover:-translate-y-2 flex flex-col"
+                className="p-6 shadow-card hover-lift flex flex-col group relative overflow-hidden"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-primary/10">
-                    <Icon className="w-6 h-6 text-primary" />
+                <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity"></div>
+                <div className="flex items-start justify-between mb-4 relative z-10">
+                  <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <Icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
                   </div>
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="secondary" className="text-xs font-medium">
                     {project.type}
                   </Badge>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                <h3 className="text-xl font-display font-bold mb-2 relative z-10 group-hover:text-primary transition-colors">{project.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{project.period}</p>
                 <p className="text-muted-foreground mb-4 flex-1">{project.description}</p>
 

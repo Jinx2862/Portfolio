@@ -46,23 +46,26 @@ const socialLinks = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 px-4 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gradient">
-          Get In Touch
-        </h2>
-        <div className="w-20 h-1 gradient-primary mx-auto mb-12 rounded-full"></div>
+    <section id="contact" className="py-20 px-4 bg-muted/30 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="text-center mb-12 animate-fade-in">
+          <h2 className="text-4xl md:text-6xl font-display font-bold mb-4 text-gradient">
+            Get In Touch
+          </h2>
+          <div className="w-20 h-1 gradient-primary mx-auto rounded-full"></div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-display font-bold mb-6">Contact Information</h3>
             <div className="space-y-4">
               {contactData.map((contact, index) => {
                 const Icon = contact.icon;
                 const content = (
-                  <Card className="p-4 shadow-card hover:shadow-elegant transition-smooth flex items-center gap-4">
-                    <div className="p-3 rounded-full bg-primary/10">
-                      <Icon className="w-5 h-5 text-primary" />
+                  <Card className="p-4 shadow-card hover-lift flex items-center gap-4 group">
+                    <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                      <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">{contact.label}</p>
@@ -83,8 +86,8 @@ const Contact = () => {
           </div>
 
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Connect With Me</h3>
-            <Card className="p-8 shadow-card text-center">
+            <h3 className="text-2xl font-display font-bold mb-6">Connect With Me</h3>
+            <Card className="p-8 shadow-card hover-lift text-center group">
               <p className="text-muted-foreground mb-6">
                 I'm always interested in hearing about new opportunities, 
                 collaborations, or just connecting with fellow tech enthusiasts.
@@ -99,7 +102,7 @@ const Contact = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-4 rounded-full bg-card hover:bg-primary hover:text-primary-foreground shadow-card transition-smooth ${social.color}`}
+                      className="p-4 rounded-full glass-effect hover:bg-primary hover:text-primary-foreground shadow-card hover:shadow-glow transition-all duration-300 hover:scale-110"
                       aria-label={social.label}
                     >
                       <Icon className="w-6 h-6" />
@@ -118,8 +121,8 @@ const Contact = () => {
               </Button>
             </Card>
 
-            <Card className="p-6 shadow-card mt-6">
-              <h4 className="font-semibold mb-2">Address</h4>
+            <Card className="p-6 shadow-card hover-lift mt-6 group">
+              <h4 className="font-display font-bold mb-2">Address</h4>
               <p className="text-sm text-muted-foreground">
                 A/p - Hangarwadi, Tal - Indapur<br />
                 Dist - Pune, Maharashtra, India
